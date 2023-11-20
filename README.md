@@ -61,4 +61,39 @@ BEGIN
 END;
 ```
 
+# 4º View 
+Crie uma visualização chamada "PedidosClientes" que combina informações das tabelas "Clientes" e "Pedidos" usando JOIN para exibir os detalhes dos pedidos e os nomes dos clientes.
+``` SQL
+CREATE VIEW PedidosClientes AS
+SELECT Pedidos.*, Clientes.Nome AS NomeCliente
+FROM Pedidos
+JOIN Clientes ON Pedidos.ClienteID = Clientes.ClienteID;
+```
+![image](https://github.com/WanderleiJullia/Gerenciamento-Pedido/assets/144744092/89f2bbcb-2024-430d-868f-f55085998103)
+
+# 5º Consulta Join; 
+Escreva uma consulta SQL que utiliza JOIN para listar os detalhes dos pedidos de cada cliente, incluindo o nome do cliente e o valor total de seus pedidos. Utilize a view "PedidosClientes" para essa consulta.
+``` SQL
+select 
+     pc.NomeCliente,
+     p.PedidoID,
+     p.Descricao,
+     p.DataPedido,
+     c.ValorPedido
+join 
+
+	Pedidos p on pc.PedidoID = p.PedidoID
+    
+join 
+   
+   Clientes c on pc.ClienteID = c.ClienteID;
+```
+![image](https://github.com/WanderleiJullia/Gerenciamento-Pedido/assets/144744092/24c97b4a-f54a-45d8-87c5-767153dbc1ec)
+
+Jullia Santos Wanderlei
+Bancos de Dados 
+Composição da AF
+
+
+
 
